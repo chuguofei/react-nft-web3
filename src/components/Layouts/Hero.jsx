@@ -1,11 +1,22 @@
-import { setGlobalState } from "@/store";
+import { setGlobalState, getGlobalState } from "@/store";
+
+import { payToMint } from "@/Adulam";
+import { Message } from "@arco-design/web-react";
 
 export const Hero = () => {
-  const startMintFun = () => {
-    setTimeout(() => {
-      setGlobalState("globalLoading", false);
-    }, 1000);
+  const ntfs = getGlobalState("nfts");
+
+  const startMintFun = async () => {
     setGlobalState("globalLoading", true);
+
+    await payToMint()
+      .then(() => {
+        setGlobalState("globalLoading", false);
+        Message.success("ntf 支付成功！！！");
+      })
+      .catch(() => {
+        setGlobalState("globalLoading", false);
+      });
   };
 
   return (
@@ -31,7 +42,9 @@ export const Hero = () => {
             开始筹币
           </button>
 
-          <div></div>
+          <div className="rounded-full bg-white text-black w-6 h-6 flex items-center justify-center p-4 font-bold mt-6">
+            {ntfs.length}/99
+          </div>
         </div>
       </div>
     </>

@@ -56,8 +56,8 @@ contract Adulam is ERC721Enumerable, Ownable {
         minted.push(
             SaleStruct(
                 supply + 1,
-                msg.sender,
-                msg.value,
+                msg.sender, // 调用者
+                msg.value, // 以太币
                 toImage(supply + 1),
                 block.timestamp
             )
@@ -73,9 +73,10 @@ contract Adulam is ERC721Enumerable, Ownable {
         ); // 触发Sale事件
     }
 
+    // 根据图片地址拼接最新的 收藏品
     function toImage(uint256 tokenId) internal view returns (string memory) {
         string memory currentBaseURI = _baseURI(); // 获取当前的基本URI
-        return
+        return  
             bytes(currentBaseURI).length > 0
                 ? string(
                     abi.encodePacked(

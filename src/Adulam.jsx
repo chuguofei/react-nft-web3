@@ -56,15 +56,16 @@ const isWalletConnected = async () => {
 // 支付以太币来铸造 NFT
 const payToMint = async () => {
   try {
-    if (!ethereum) return alert("Please install Metamask");
-    // 获取当前账户
-    const connectedAccount = getGlobalState("connectedAccount");
+    const accounts = getAccountFun("eth_accounts");
+    if (!accounts) return;
+
+    // 先获取以太网的实例
     const contract = getEtheriumContract();
     const amount = ethers.utils.parseEther("0.001");
 
     // 调用solidity中的方法
     await contract.payToMint({
-      from: connectedAccount,
+      from: accounts[0],
       value: amount._hex,
     });
 
@@ -122,14 +123,14 @@ const getAccountFun = async (type) => {
     });
     return null;
   }
-  console.error(accounts);
   return accounts;
 };
 
 // 加载 NFT 列表
 const loadNfts = async () => {
   try {
-    if (!ethereum) return alert("Please install Metamask");
+    const accounts = await getAccountFun("eth_accounts");
+    if (!accounts) return;
 
     // 获取ether实例
     const contract = getEtheriumContract();
