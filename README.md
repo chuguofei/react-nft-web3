@@ -7,7 +7,7 @@
 > 推荐 pnpm
 
 ```shell
-pnpm install 
+pnpm install
 ```
 
 ## 运行命令启动脚本

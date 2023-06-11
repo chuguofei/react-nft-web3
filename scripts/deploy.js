@@ -1,5 +1,3 @@
-// import { ethers } from "hardhat";
-// import fs from "fs";
 const { ethers } = require("hardhat");
 const fs = require("fs");
 
