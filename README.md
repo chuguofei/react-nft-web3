@@ -6,6 +6,10 @@
 
 > 推荐 pnpm
 
+```shell
+pnpm install 
+```
+
 ## 运行命令启动脚本
 
 ```shell
@@ -27,3 +31,7 @@ yarn hardhat run scripts/deploy.js --network localhost
 ```
 
 ## 启动项目
+
+```shell
+pnpm run dev
+```
