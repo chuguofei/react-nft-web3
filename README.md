@@ -1,6 +1,6 @@
 # 使用 react + solidity + ether.js + hardhat 搭建的一个内部以太网筹币项目
 
-![](/https://github.com/chuguofei/react-nft-web3/blob/main/public/cover.png)
+![](https://github.com/chuguofei/react-nft-web3/blob/main/public/cover.png)
 
 ## 安装依赖
 
@@ -16,7 +16,7 @@ yarn hardhat node
 
 ## 在小狐狸钱包上创建本地网络
 
-![](/https://github.com/chuguofei/react-nft-web3/blob/main/public/mark-localhost.png)
+![](https://github.com/chuguofei/react-nft-web3/blob/main/public/mark-localhost.png)
 
 ## 部署合约
 
